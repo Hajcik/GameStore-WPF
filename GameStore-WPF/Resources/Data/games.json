@@ -1,0 +1,120 @@
+[
+  {
+    "Id": 0,
+    "Name": "Counter-Strike: Global Offensive",
+    "Platform": "PC",
+    "BuyPrice": 29.99,
+    "SellPrice": 49.99,
+    "Genres": [ "Action", "First-person shooter", "Tactical" ],
+    "Modes": [ "Single-player", "Multi-player" ],
+    "ReleaseDate": "31/12/2020",
+    "Developers": [ "Valve Corporation, Hidden Path Entertainment" ],
+    "Publishers": [ "Valve Corporation" ],
+    "AvailableCopies": 50,
+    "Description": "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.)."
+
+  },
+  {
+    "Id": 1,
+    "Name": "Assasin's Creed: Valhalla",
+    "Platform": "PC",
+    "BuyPrice": 111.99,
+    "SellPrice": 169.99,
+    "Genres": [ "Action", "Story-Driven", "Third-Person Adventure" ],
+    "Modes": [ "Single-player" ],
+    "ReleaseDate": "31/12/2020",
+    "Developers": [ "Ubisoft Montreal" ],
+    "Publishers": [ "Ubisoft" ],
+    "AvailableCopies": 20,
+    "Description": "In Assassin's Creed Valhalla, become Eivor, a legendary Viking raider on a quest for glory. Explore a dynamic and beautiful open world set against the brutal backdrop of England’s Dark Ages. Raid your enemies, grow your settlement, and build your political power in the quest to earn a place among the gods in Valhalla."
+
+  },
+  {
+    "Id": 2,
+    "Name": "Assasin's Creed: Valhalla",
+    "Platform": "PS5",
+    "BuyPrice": 149.99,
+    "SellPrice": 219.99,
+    "Genres": [ "Action", "Story-Driven", "Third-Person Adventure" ],
+    "Modes": [ "Single-player" ],
+    "ReleaseDate": "31/12/2020",
+    "Developers": [ "Ubisoft Montreal" ],
+    "Publishers": [ "Ubisoft" ],
+    "AvailableCopies": 20,
+    "Description": "In Assassin's Creed Valhalla, become Eivor, a legendary Viking raider on a quest for glory. Explore a dynamic and beautiful open world set against the brutal backdrop of England’s Dark Ages. Raid your enemies, grow your settlement, and build your political power in the quest to earn a place among the gods in Valhalla."
+
+  },
+  {
+    "Id": 3,
+    "Name": "Assasin's Creed: Origins",
+    "Platform": "PC",
+    "BuyPrice": 79.99,
+    "SellPrice": 120.99,
+    "Genres": [ "Action", "Story-Driven", "Third-Person Adventure" ],
+    "Modes": [ "Single-player" ],
+    "ReleaseDate": "31/12/2020",
+    "Developers": [ "Ubisoft Montreal" ],
+    "Publishers": [ "Ubisoft" ],
+    "AvailableCopies": 20,
+    "Description": "Assassin's Creed® Origins uncovers the beginning of the Brotherhood. Fight in epic battles, master a completely reinvented combat system, and explore the entirety of Egypt. With the all-new quest system, complete missions in any order you choose, and follow your own path to greatness."
+
+  },
+  {
+    "Id": 4,
+    "Name": "Assasin's Creed: Origins",
+    "Platform": "PS4",
+    "BuyPrice": 119.99,
+    "SellPrice": 149.99,
+    "Genres": [ "Action", "Story-Driven", "Third-Person Adventure" ],
+    "Modes": [ "Single-player" ],
+    "ReleaseDate": "31/12/2020",
+    "Developers": [ "Ubisoft Montreal" ],
+    "Publishers": [ "Ubisoft" ],
+    "AvailableCopies": 20,
+    "Description": "Assassin's Creed® Origins uncovers the beginning of the Brotherhood. Fight in epic battles, master a completely reinvented combat system, and explore the entirety of Egypt. With the all-new quest system, complete missions in any order you choose, and follow your own path to greatness."
+
+  },
+  {
+    "Id": 5,
+    "Name": "Assasin's Creed: Origins",
+    "Platform": "XBOX ONE",
+    "BuyPrice": 119.99,
+    "SellPrice": 149.99,
+    "Genres": [ "Action", "Story-Driven", "Third-Person Adventure" ],
+    "Modes": [ "Single-player" ],
+    "ReleaseDate": "31/12/2020",
+    "Developers": [ "Ubisoft Montreal" ],
+    "Publishers": [ "Ubisoft" ],
+    "AvailableCopies": 20,
+    "Description": "Assassin's Creed® Origins uncovers the beginning of the Brotherhood. Fight in epic battles, master a completely reinvented combat system, and explore the entirety of Egypt. With the all-new quest system, complete missions in any order you choose, and follow your own path to greatness."
+
+  },
+  {
+    "Id": 6,
+    "Name": "Counter-Strike: Source",
+    "Platform": "PC",
+    "Price": 25.99,
+    "Genres": [ "Action", "First-person shooter", "Tactical" ],
+    "Modes": [ "Single-player", "Multi-player" ],
+    "ReleaseDate": "31/12/2020",
+    "Developers": [ "Valve Corporation" ],
+    "Publishers": [ "Valve Corporation, Sierra Entertainment" ],
+    "AvailableCopies": 100,
+    "Description": "Action filled FPS from 2004!"
+  }
+,
+  {
+    "Id": 7,
+    "Name": "Programowanie",
+    "Platform": "PS4",
+    "BuyPrice": 15.0,
+    "SellPrice": 15.0,
+    "Genres": [ "sds" ],
+    "Modes": [ "sdsd" ],
+    "ReleaseDate": "31/12/2020",
+    "Developers": [ "sd" ],
+    "Publishers": [ "sdsd" ],
+    "AvailableCopies": 15,
+    "Description": "sdsdsd"
+  }
+]

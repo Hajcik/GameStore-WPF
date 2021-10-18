@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameStore_WPF.Controllers;
+using GameStore_WPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,20 @@ namespace GameStore_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainController _controller { get; set; }
+        private List<Game> Games { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // Run console window for testing purposes
+            ConsoleAllocator.ShowConsoleWindow();
+
+            _controller = new MainController(Games);
+            Games = _controller.SET_GAMES_Data("D:\\Git\\GameStore-WPF\\GameStore-WPF\\Resources\\Data\\games.json");
+
+            Console.WriteLine(Games.Count);
         }
     }
 }
