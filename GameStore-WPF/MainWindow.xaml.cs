@@ -46,6 +46,8 @@ namespace GameStore_WPF
             gamesViewSource.Source = _context.Games.Local.ToObservableCollection();
         }
 
+
+        // _context.SaveChanges(); after button click or smth
         protected override void OnClosing(CancelEventArgs e)
         {
             _context.Dispose();
