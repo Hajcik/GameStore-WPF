@@ -18,11 +18,7 @@ namespace GameStore_WPF.Controllers
 
         public void GET_GAMES_Data(string fileUrl)
         {
-            using (StreamReader file = File.OpenText(fileUrl))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                GamesList = (List<Game>) serializer.Deserialize(file, typeof(List<Game>));
-            }
+            
         }
 
         public List<Game> SET_GAMES_Data(string fileUrl)

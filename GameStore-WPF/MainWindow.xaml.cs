@@ -1,7 +1,9 @@
-﻿using GameStore_WPF.Controllers;
+﻿using GameStore_WPF.Contexts;
+using GameStore_WPF.Controllers;
 using GameStore_WPF.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,20 +24,32 @@ namespace GameStore_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly GameContext _context = new GameContext();
+        private CollectionViewSource gamesViewSource;
+
         public MainController _controller { get; set; }
         private List<Game> Games { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-
             // Run console window for testing purposes
             ConsoleAllocator.ShowConsoleWindow();
 
-            _controller = new MainController(Games);
-            Games = _controller.SET_GAMES_Data("D:\\Git\\GameStore-WPF\\GameStore-WPF\\Resources\\Data\\games.json");
+            gamesViewSource = (CollectionViewSource)FindResource(nameof(gamesViewSource));
+        }
 
-            Console.WriteLine(Games.Count);
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _context.Database.EnsureCreated();
+            _context.Games.Load();
+            gamesViewSource.Source = _context.Games.Local.ToObservableCollection();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            _context.Dispose();
+            base.OnClosing(e);
         }
     }
 }

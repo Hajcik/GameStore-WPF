@@ -12,7 +12,6 @@
     "Publishers": [ "Valve Corporation" ],
     "AvailableCopies": 50,
     "Description": "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.)."
-
   },
   {
     "Id": 1,
@@ -101,8 +100,7 @@
     "Publishers": [ "Valve Corporation, Sierra Entertainment" ],
     "AvailableCopies": 100,
     "Description": "Action filled FPS from 2004!"
-  }
-,
+  },
   {
     "Id": 7,
     "Name": "Programowanie",
