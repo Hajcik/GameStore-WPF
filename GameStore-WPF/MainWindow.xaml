@@ -5,7 +5,7 @@
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:local="clr-namespace:GameStore_WPF"
          mc:Ignorable="d"
-         Title="MainWindow" Height="450" Width="800"
+         Title="MainWindow" Height="500" Width="800"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -15,8 +15,77 @@
          Background="{DynamicResource MaterialDesignPaper}"
          FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <materialDesign:Card Padding="32" Margin="16">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">Test card</TextBlock>
-        </materialDesign:Card>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Name="menu_Grid">
+
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#D9D9D9" Offset="1"/>
+                    <GradientStop Color="#BFBFBF" Offset="2"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="1" Name="logo_Btn">
+
+            </Image>
+            <Button Grid.Column="3" Margin="0,6,0,6" Content="ADD" Background="#C71E27" 
+                    Opacity="1" Cursor="Hand" Visibility="Visible" FontSize="20" 
+                    FontFamily="Microsoft Sans Serif" BorderBrush="#FF962D38" 
+                    FontStretch="SemiCondensed" FontStyle="Normal" 
+                    FontWeight="Bold" Foreground="Black"
+                    Name="add_Btn">
+
+            </Button>
+            <materialDesign:PackIcon Grid.Column="5" Kind="Search"  Height="30" Width="30" 
+                                     Margin="40,0,0,0" VerticalAlignment="Center" 
+                                     Name="search_Ico"/>
+
+            <Border Grid.Column="5" Margin="32,14,64,15" BorderThickness="0,0,0,3" BorderBrush="Red">
+                <TextBlock  Text="Search"  FontFamily="Tahoma" 
+                            FontSize="16" TextTrimming="WordEllipsis" 
+                            FontStyle="Normal" Margin="50,0,0,0"
+                            VerticalAlignment="Center"
+                            Name="search_TB"
+                       />
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1" Name="content_Grid">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer>
+                
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>
