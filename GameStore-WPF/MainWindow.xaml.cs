@@ -1,6 +1,7 @@
 ﻿using GameStore_WPF.Contexts;
 using GameStore_WPF.Controllers;
 using GameStore_WPF.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,6 @@ namespace GameStore_WPF
             // Run console window for testing purposes
             ConsoleAllocator.ShowConsoleWindow();
 
-            gamesViewSource = (CollectionViewSource)FindResource(nameof(gamesViewSource));
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
