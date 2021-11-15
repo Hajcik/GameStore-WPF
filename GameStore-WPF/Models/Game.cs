@@ -1,25 +1,47 @@
 ﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 using System.Collections.Generic;
-using System.Windows.Controls;
-using Newtonsoft.Json;
 
 namespace GameStore_WPF.Models
 {
+    [Serializable]
     public class Game
     {
-        public int Id { get; set; }
+        [BsonId, BsonElement("_id"), BsonRepresentation(BsonType.ObjectId)]
+        public string _id { get; set; }
+        [BsonElement("Name"), BsonRepresentation(BsonType.String)]
         public string Name { get; set; }
+        [BsonElement("Platform"), BsonRepresentation(BsonType.String)]
         public string Platform { get; set; }
-        public float Price { get; set; }
-        public string Genres { get; set; }
-        public string Modes { get; set; }
+
+        [BsonElement("Price"), BsonRepresentation(BsonType.Double)]
+        public double Price { get; set; }
+
+        [BsonElement("Genres"), BsonRepresentation(BsonType.Array)]
+        public List<string> Genres { get; set; }
+
+        [BsonElement("Modes"), BsonRepresentation(BsonType.Array)]
+        public List<string> Modes { get; set; }
+
+        [BsonElement("ReleaseDate"), BsonRepresentation(BsonType.DateTime)]
         public DateTime ReleaseDate { get; set; }
-        public string Developer { get; set; }
-        public string Publisher { get; set; }
+
+        [BsonElement("Developers"), BsonRepresentation(BsonType.Array)]
+
+        public List<string> Developers { get; set; }
+        [BsonElement("Publishers"), BsonRepresentation(BsonType.Array)]
+        public List<string> Publishers { get; set; }
+
+        [BsonElement("AvailableCopies"), BsonRepresentation(BsonType.Int32)]
         public int AvailableCopies { get; set; }
+
+        [BsonElement("Description"), BsonRepresentation(BsonType.String)]
         public string Description { get; set; }
-        // private Image Image { get; set; }
-        public Game(){ }
+
+        [BsonElement("ImageUrl"), BsonRepresentation(BsonType.String)]
+        public string ImageUrl { get; set; }
+        public Game() { }
 
         public Game(string name, string platform, float price)
         {
@@ -28,19 +50,20 @@ namespace GameStore_WPF.Models
             this.Price = price;
         }
 
-        public Game(int id, string name, string platform, float price, string genres, string modes, DateTime releaseDate, string developer, string publisher, int availableCopies, string description)
+        public Game(string id, string name, string platform, double price, List<string> genres, List<string> modes, DateTime releaseDate, List<string> developers, List<string> publishers, int availableCopies, string description, string imageUrl)
         {
-            this.Id = id;
-            this.Name = name ?? throw new ArgumentNullException(nameof(name));
-            this.Platform = platform ?? throw new ArgumentNullException(nameof(platform));
-            this.Price = price;
-            this.Genres = genres ?? throw new ArgumentNullException(nameof(genres));
-            this.Modes = modes ?? throw new ArgumentNullException(nameof(modes));
-            this.ReleaseDate = releaseDate;
-            this.Developer = developer ?? throw new ArgumentNullException(nameof(developer));
-            this.Publisher = publisher ?? throw new ArgumentNullException(nameof(publisher));
-            this.AvailableCopies = availableCopies;
-            this.Description = description ?? throw new ArgumentNullException(nameof(description));
+            _id = id;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Platform = platform ?? throw new ArgumentNullException(nameof(platform));
+            Price = price;
+            Genres = genres ?? throw new ArgumentNullException(nameof(genres));
+            Modes = modes ?? throw new ArgumentNullException(nameof(modes));
+            ReleaseDate = releaseDate;
+            Developers = developers ?? throw new ArgumentNullException(nameof(developers));
+            Publishers = publishers ?? throw new ArgumentNullException(nameof(publishers));
+            AvailableCopies = availableCopies;
+            Description = description ?? throw new ArgumentNullException(nameof(description));
+            ImageUrl = imageUrl ?? throw new ArgumentNullException(nameof(imageUrl));
         }
     }
 }

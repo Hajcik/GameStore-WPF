@@ -2,9 +2,12 @@
 using GameStore_WPF.Controllers;
 using GameStore_WPF.Models;
 using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,33 +28,26 @@ namespace GameStore_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly GameContext _context = new GameContext();
-        private CollectionViewSource gamesViewSource;
-
-        public MainController _controller { get; set; }
-        private List<Game> Games { get; set; }
+        public IMongoCollection<BsonDocument> gamesCollection { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
+
             // Run console window for testing purposes
             ConsoleAllocator.ShowConsoleWindow();
+            InitializeMongoDb();
 
+            gamesCollection.Find(new BsonDocument()).ForEachAsync(x => Console.WriteLine(x));
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void InitializeMongoDb()
         {
-            _context.Database.EnsureCreated();
-            _context.Games.Load();
-            gamesViewSource.Source = _context.Games.Local.ToObservableCollection();
+            var client = new MongoClient("mongodb://localhost:27017");
+            var db = client.GetDatabase("GamesDb");
+
+            gamesCollection = db.GetCollection<BsonDocument>("gamesCollection");
         }
 
-
-        // _context.SaveChanges(); after button click or smth
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            _context.Dispose();
-            base.OnClosing(e);
-        }
     }
 }
