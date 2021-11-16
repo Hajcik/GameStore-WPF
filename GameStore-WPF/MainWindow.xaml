@@ -46,7 +46,8 @@
                     FontFamily="Microsoft Sans Serif" BorderBrush="#FF962D38" 
                     FontStretch="SemiCondensed" FontStyle="Normal" 
                     FontWeight="Bold" Foreground="Black"
-                    Name="add_Btn">
+                    Name="add_Btn"
+                    Click="AddButtonEvent_Click">
 
             </Button>
             <materialDesign:PackIcon Grid.Column="5" Kind="Search"  Height="30" Width="30" 

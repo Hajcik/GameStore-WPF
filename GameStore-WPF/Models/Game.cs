@@ -18,19 +18,19 @@ namespace GameStore_WPF.Models
         [BsonElement("Price"), BsonRepresentation(BsonType.Double)]
         public double Price { get; set; }
 
-        [BsonElement("Genres"), BsonRepresentation(BsonType.Array)]
+        [BsonElement("Genres")]
         public List<string> Genres { get; set; }
 
-        [BsonElement("Modes"), BsonRepresentation(BsonType.Array)]
+        [BsonElement("Modes")]
         public List<string> Modes { get; set; }
 
-        [BsonElement("ReleaseDate"), BsonRepresentation(BsonType.DateTime)]
-        public DateTime ReleaseDate { get; set; }
+        [BsonElement("ReleaseDate"), BsonRepresentation(BsonType.String)]
+        public string ReleaseDate { get; set; }
 
-        [BsonElement("Developers"), BsonRepresentation(BsonType.Array)]
+        [BsonElement("Developers")]
 
         public List<string> Developers { get; set; }
-        [BsonElement("Publishers"), BsonRepresentation(BsonType.Array)]
+        [BsonElement("Publishers")]
         public List<string> Publishers { get; set; }
 
         [BsonElement("AvailableCopies"), BsonRepresentation(BsonType.Int32)]
@@ -50,7 +50,10 @@ namespace GameStore_WPF.Models
             this.Price = price;
         }
 
-        public Game(string id, string name, string platform, double price, List<string> genres, List<string> modes, DateTime releaseDate, List<string> developers, List<string> publishers, int availableCopies, string description, string imageUrl)
+        // Release Date change format to DateTime, currently
+        // left as string to test application
+
+        public Game(string id, string name, string platform, double price, List<string> genres, List<string> modes, string releaseDate, List<string> developers, List<string> publishers, int availableCopies, string description, string imageUrl)
         {
             _id = id;
             Name = name ?? throw new ArgumentNullException(nameof(name));
