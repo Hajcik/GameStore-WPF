@@ -1,5 +1,6 @@
 ﻿using GameStore_WPF.Controllers;
 using GameStore_WPF.Models;
+using GameStore_WPF.Services;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -28,35 +29,27 @@ namespace GameStore_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        private static string connectionStringClient = "mongodb+srv://Hajcik:hajcik@cluster0.ilqki.mongodb.net/GamesDb?retryWrites=true&w=majority";
+        private static string gamesCollectionString = "gamesCollection";
+        private static string databaseString = "GamesDb";
 
+        private static IMongoDatabase db;
+        private static IMongoClient client;
+
+        public GameService _service =
+            new GameService(connectionStringClient, databaseString, gamesCollectionString, db, client);
+            
+        
         public IMongoCollection<Game> gamesCollection { get; set; }
 
         public MainWindow()
         {
-            CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
-            culture.DateTimeFormat.ShortDatePattern = "dd-MM-yyyy";
-            culture.DateTimeFormat.LongTimePattern = "";
-            Thread.CurrentThread.CurrentCulture = culture;
-
             InitializeComponent();
 
             // Run console window for testing purposes
             ConsoleAllocator.ShowConsoleWindow();
-            InitializeMongoDb();
-
-            
-
-
-            gamesCollection.Find(new BsonDocument()).ForEachAsync(x => Console.WriteLine(x));
-        }
-
-        public void InitializeMongoDb()
-        {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var db = client.GetDatabase("GamesDb");
-
-            gamesCollection = db.GetCollection<Game>("gamesCollection");
+        
+        //    gamesCollection.Find(new BsonDocument()).ForEachAsync(x => Console.WriteLine(x));
         }
 
         // CRUD
@@ -89,12 +82,9 @@ namespace GameStore_WPF
 
         private void AddButtonEvent_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(Get("61929582c0669196a09accf0").Name);
-            Console.WriteLine(Get("61929582c0669196a09accf0").Name);
+            MessageBox.Show(_service.Get("61942bc3bf04840b15880b5d").Name);
+
+
         }
-
-
-
-
     }
 }

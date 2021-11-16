@@ -28,8 +28,8 @@ namespace GameStore_WPF.Models
         public string ReleaseDate { get; set; }
 
         [BsonElement("Developers")]
-
         public List<string> Developers { get; set; }
+
         [BsonElement("Publishers")]
         public List<string> Publishers { get; set; }
 

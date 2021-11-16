@@ -10,21 +10,17 @@ namespace GameStore_WPF.Services
         // Put them in controller later
 
         private readonly IMongoCollection<Game> _games;
+        private static IMongoDatabase db;
+        private static IMongoClient client;
 
-        public GameService()
+        public GameService(string _client, string dbName, string collectionName, IMongoDatabase _db, IMongoClient _mongoClient)
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var db = client.GetDatabase("GamesDb");
-
-            _games = db.GetCollection<Game>("gamesCollection");
-        }
-
-        public GameService(string _client, string dbName, string collectionName)
-        {
-            var client = new MongoClient(_client);
-            var db = client.GetDatabase(dbName);
+            client = new MongoClient(_client);
+            db = client.GetDatabase(dbName);
 
             _games = db.GetCollection<Game>(collectionName);
+            _db = db;
+            _mongoClient = client;
         }
 
         public List<Game> Get() =>
