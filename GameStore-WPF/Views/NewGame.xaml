@@ -1,0 +1,48 @@
+﻿<Window x:Class="GameStore_WPF.Views.NewGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameStore_WPF.Views"
+        mc:Ignorable="d"
+        Title="NewGame" Height="450" Width="800" Background="#FFD4C2B0">
+    <Grid Margin="10,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition Width="601*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label3" Content="Release Date&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Left" Margin="38,185,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Price&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Platform&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Left" Margin="38,73,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Genres&#xD;&#xA;" HorizontalAlignment="Left" Margin="12,184,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label x:Name="NewGameLabel" Content="New Game Panel&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="295" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="20" Height="44"/>
+        <Label x:Name="label" Content="Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2_Copy" Content="Modes&#xD;&#xA;" HorizontalAlignment="Left" Margin="12,243,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label x:Name="label2_Copy2" Content="Publishers&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="38,128,0,0" VerticalAlignment="Top" Height="25" Grid.Column="1"/>
+        <Label x:Name="label2_Copy1" Content="Developers&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="12,311,0,0" VerticalAlignment="Top" Height="25"/>
+
+        <Button x:Name="Add_Game_Button" Click="Add_Game_ButtonClick" Content="Add Game" HorizontalAlignment="Left" Margin="368,354,0,0" VerticalAlignment="Top" Cursor="Hand" Grid.Column="1" Width="179"/>
+
+        <ComboBox x:Name="Platform_ComboBox" HorizontalAlignment="Left" Margin="38,97,0,0" VerticalAlignment="Top" Width="172" Grid.Column="1">
+            <ComboBoxItem Content="PC"/>
+            <ComboBoxItem Content="PS4"/>
+            <ComboBoxItem Content="PS5"/>
+            <ComboBoxItem Content="XBOX ONE"/>
+            <ComboBoxItem Content="NINTENDO SWITCH"/>
+        </ComboBox>
+        <Image x:Name="Cover_Image" HorizontalAlignment="Left" Height="274" Margin="343,22,0,0" VerticalAlignment="Top" Width="236" Grid.Column="1"/>
+        <TextBox x:Name="Name_textBox" HorizontalAlignment="Center" Margin="0,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="Price_textBox" HorizontalAlignment="Left" Margin="12,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="Genres_textBox" HorizontalAlignment="Left" Margin="12,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="Modes_textBox" HorizontalAlignment="Left" Margin="12,268,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="Developers_textBox" HorizontalAlignment="Left" Margin="12,336,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="Publishers_textBox" HorizontalAlignment="Left" Margin="38,153,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Grid.Column="1"/>
+        <DatePicker Grid.Column="1" x:Name="ReleaseDate_DatePicker" HorizontalAlignment="Left" Margin="38,209,0,0" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="AvailableCopies_textBox" Grid.Column="1" HorizontalAlignment="Left" Margin="38,268,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86"
+                 PreviewTextInput="NumberValidationTextBox" TextAlignment="Right"/>
+        <Label Content="Available Copies&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Left" Margin="33,244,0,0" VerticalAlignment="Top" Height="24"/>
+        <Button x:Name="PickImage_Button" Click="PickImage_ButtonClick" Content="Pick Image" Grid.Column="1" HorizontalAlignment="Left" Margin="227,91,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBox x:Name="Description_textBox" Grid.Column="1" HorizontalAlignment="Left" Margin="38,302,0,0" Text="Put description of the game here..." TextWrapping="Wrap" VerticalAlignment="Top" Width="258" Height="108" Cursor="IBeam"/>
+
+    </Grid>
+</Window>

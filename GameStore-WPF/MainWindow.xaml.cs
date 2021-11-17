@@ -1,6 +1,7 @@
 ﻿using GameStore_WPF.Controllers;
 using GameStore_WPF.Models;
 using GameStore_WPF.Services;
+using GameStore_WPF.Views;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -52,38 +53,14 @@ namespace GameStore_WPF
         //    gamesCollection.Find(new BsonDocument()).ForEachAsync(x => Console.WriteLine(x));
         }
 
-        // CRUD
-        // Put them in controller / services later
-        public List<Game> Get() =>
-            gamesCollection.Find(game => true).ToList();
-
-        public Game Get(string id) =>
-            gamesCollection.Find<Game>(game => game._id == id).FirstOrDefault();
-
-        public Game Create(Game game)
-        {
-            gamesCollection.InsertOne(game);
-            return game;
-        }
-
-        public void Update(string id, Game gameUpdate) =>
-            gamesCollection.ReplaceOne(game => game._id == id, gameUpdate);
-
-        public void Remove(Game gameDel) =>
-            gamesCollection.DeleteOne(game => game._id == gameDel._id);
-
-        public void Remove(string id) =>
-            gamesCollection.DeleteOne(game => game._id == id);
-
-
         // Temporary button logic for testing
 
         Button add_btn = new Button();
 
         private void AddButtonEvent_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(_service.Get("61942bc3bf04840b15880b5d").Name);
-
+            NewGame newGame = new NewGame();
+            newGame.Show();
 
         }
     }

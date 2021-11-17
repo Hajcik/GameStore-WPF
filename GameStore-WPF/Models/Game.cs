@@ -68,5 +68,20 @@ namespace GameStore_WPF.Models
             Description = description ?? throw new ArgumentNullException(nameof(description));
             ImageUrl = imageUrl ?? throw new ArgumentNullException(nameof(imageUrl));
         }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}" +
+                $"\nPlatform:{Platform}" +
+                $"\nPrice: {Price}" +
+                $"\nGenres: {Genres}" +
+                $"\nModes: {Modes}" +
+                $"\nReleaseDate: {ReleaseDate}" +
+                $"\nDevelopers: {Developers}" +
+                $"\nPublishers: {Publishers}" +
+                $"\nAvailableCopies: {AvailableCopies}" +
+                $"\nDescription: {Description}" +
+                $"\nImageUrl: {ImageUrl}";
+        }
     }
 }
