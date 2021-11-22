@@ -5,8 +5,285 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameStore_WPF"
         mc:Ignorable="d"
-        Title="AddWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="AddWindow" Height="620" Width="320"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize">
+    <Grid Background="#323232">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Name" Margin="0,15,0,0"
+                   Foreground="AntiqueWhite" Padding="20,5,20,5"
+                   Height="30" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="name_TB"/>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Content="Developer" Margin="0,15,0,0"
+                   Foreground="AntiqueWhite" Padding="20,5,20,5"
+                   Height="30" VerticalAlignment="Center" x:Name="dev_l"/>
+            <Button Grid.Column="2" Margin="10,5,5,5"
+                    Height="30" VerticalAlignment="Center" 
+                    Foreground="AntiqueWhite" BorderBrush="#FFC71E27" 
+                    Background="#C71E27"  x:Name="dev_btn" >Manage</Button>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+            <!--
+            <TextBox Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="dev_TB"/>
+            -->
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Publisher" Margin="0,15,0,0"
+                   Foreground="AntiqueWhite" Padding="20,5,20,5"
+                   Height="30" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="publish_TB"/>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Relase date" Margin="0,15,0,0"
+                   Foreground="AntiqueWhite" Padding="20,5,20,5"
+                   Height="30" VerticalAlignment="Center"/>
+            <DatePicker Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="date"/>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+            <!--TODO: Rel date datepicker 
+            <TextBox Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="xd"/>
+            -->
+        </Grid>
+
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Platform" Margin="0,15,0,0"
+                   Foreground="AntiqueWhite" Padding="20,5,20,5"
+                   Height="30" VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="platform_cb">
+                <ComboBoxItem>PC</ComboBoxItem>
+                <ComboBoxItem>PS3</ComboBoxItem>
+                <ComboBoxItem>PS4</ComboBoxItem>
+                <ComboBoxItem>PS5</ComboBoxItem>
+                <ComboBoxItem>Xbox 360</ComboBoxItem>
+                <ComboBoxItem>Xbox One</ComboBoxItem>
+                <ComboBoxItem>Xbox Series X</ComboBoxItem>
+                <ComboBoxItem>Xbox Series S</ComboBoxItem>
+                <ComboBoxItem>Nintendo Switch</ComboBoxItem>
+                <ComboBoxItem>Wii U</ComboBoxItem>
+            </ComboBox>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+            <!--TODO: Platform selector 
+            <TextBox Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="xd1"/>
+            -->
+        </Grid>
+
+        <Grid Grid.Row="6" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Genre" Margin="0,15,0,0"
+                   Foreground="AntiqueWhite" Padding="20,5,20,5"
+                   Height="30" VerticalAlignment="Center" x:Name="genre_l"/>
+            <Button Grid.Column="2" Margin="10,5,5,5"
+                    Height="30" VerticalAlignment="Center" 
+                    Foreground="AntiqueWhite" BorderBrush="#FFC71E27" 
+                    Background="#C71E27"  x:Name="genre_btn" >Manage</Button>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+            <!--TODO: utility window to use as genres/modes -->
+            
+        </Grid>
+
+        <Grid Grid.Row="7" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Mode" Margin="0,15,0,0"
+                   Foreground="AntiqueWhite" Padding="20,5,20,5"
+                   Height="30" VerticalAlignment="Center" x:Name="mode_l"/>
+            <Button Grid.Column="2" Margin="10,5,5,5"
+                    Height="30" VerticalAlignment="Center" 
+                    Foreground="AntiqueWhite" BorderBrush="#FFC71E27" 
+                    Background="#C71E27"  x:Name="mode_btn" >Manage</Button>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+            <!--TODO: utility window to use as genres/modes -->
+
+        </Grid>
+
+        <Grid Grid.Row="8" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Amount of Copies" Margin="0,10,0,0"
+                   Foreground="AntiqueWhite" Padding="15,5,0,5"
+                   Height="30" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="copies_TB"/>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+            
+        </Grid>
+
+        <Grid Grid.Row="9" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="Price" Margin="0,15,0,0"
+                   Foreground="AntiqueWhite" Padding="20,5,20,5"
+                   Height="30" VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2" Margin="0,0,0,0"
+                     Foreground="AntiqueWhite" Padding="0,5,0,5"
+                     Height="30" VerticalAlignment="Center"
+                     BorderThickness="0" x:Name="price_TB"/>
+            <Border Grid.ColumnSpan="3" 
+                    BorderThickness="0,0,0,1.4" BorderBrush="#C71E27"
+                    Padding="20,5,20,5" Margin="15,5,5,8"/>
+        </Grid>
+
+        <Grid Grid.Row="10" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Description" Margin="0"
+                   Foreground="AntiqueWhite" Padding="20,10,20,5"
+                   Height="30" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" 
+                     Height="95" Width="275"
+                     Margin="0,5,5,0" Padding="5"
+                     Foreground="AntiqueWhite" 
+                     BorderThickness="0" x:Name="description_TB"
+                     TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+            <Border Grid.Row="1" Margin="0,15,0,0"
+                    BorderThickness="0,0,1.4,1.4" BorderBrush="#C71E27"
+                    />
+
+            <!-- Desc area-->
+        </Grid>
+
+        <Grid Grid.Row="11" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!-- button to image, add-->
+
+            <Button Grid.Column="0" Margin="10,5,5,5"
+                    Height="30" VerticalAlignment="Center" 
+                    Foreground="AntiqueWhite" BorderBrush="#FFC71E27" 
+                    Background="#C71E27"  x:Name="add_img_btn" >Set Image</Button>
+            
+            <Button Grid.Column="2" Margin="10,5,5,5"
+                    Height="30" VerticalAlignment="Center" 
+                    Foreground="AntiqueWhite" BorderBrush="#FFC71E27" 
+                    Background="#C71E27"  x:Name="add_btn" >Add</Button>
+            
+            
+        </Grid>
+
     </Grid>
 </Window>
