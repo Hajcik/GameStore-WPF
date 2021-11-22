@@ -36,7 +36,7 @@
             <Image Grid.Column="1" Name="logo_Btn">
 
             </Image>
-            <Button Grid.Column="3" Margin="0,6,0,6" Content="ADD" Background="#C71E27" 
+            <Button Click="AddButtonEvent_Click" Grid.Column="3" Margin="0,6,0,6" Content="ADD" Background="#C71E27" 
                     Opacity="1" Cursor="Hand" Visibility="Visible" FontSize="20" 
                     FontFamily="Microsoft Sans Serif" BorderBrush="#FF962D38" 
                     FontStretch="SemiCondensed" FontStyle="Normal" 
@@ -91,7 +91,7 @@
         
         </Grid>-->
 
-        <ListView x:Name="games_LV" Grid.Row="1" Margin="10,10,10,10">
+        <ListView SelectedIndex="{Binding itemId}" x:Name="games_LV" Grid.Row="1" Margin="10,10,10,10">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="6" HorizontalAlignment="Stretch"/>
@@ -106,6 +106,11 @@
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="Selected" Handler="ListViewItem_Click"></EventSetter>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </Window>

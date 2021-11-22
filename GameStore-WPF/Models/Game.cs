@@ -15,31 +15,22 @@ namespace GameStore_WPF.Models
         public string Name { get; set; }
         [BsonElement("Platform"), BsonRepresentation(BsonType.String)]
         public string Platform { get; set; }
-
         [BsonElement("Price"), BsonRepresentation(BsonType.Double)]
         public double Price { get; set; }
-
         [BsonElement("Genres")]
         public List<string> Genres { get; set; }
-
         [BsonElement("Modes")]
         public List<string> Modes { get; set; }
-
         [BsonElement("ReleaseDate"), BsonRepresentation(BsonType.String)]
         public string ReleaseDate { get; set; }
-
         [BsonElement("Developers")]
         public List<string> Developers { get; set; }
-
         [BsonElement("Publishers")]
         public List<string> Publishers { get; set; }
-
         [BsonElement("AvailableCopies"), BsonRepresentation(BsonType.Int32)]
         public int AvailableCopies { get; set; }
-
         [BsonElement("Description"), BsonRepresentation(BsonType.String)]
         public string Description { get; set; }
-
         [BsonElement("ImageUrl"), BsonRepresentation(BsonType.String)]
         public string ImageUrl { get; set; }
         public Game() { }
@@ -83,7 +74,7 @@ namespace GameStore_WPF.Models
                 $"\nPublishers: {string.Join(",", Publishers.ToArray())}" +
                 $"\nAvailableCopies: {AvailableCopies}" +
                 $"\nDescription: {Description}" +
-                $"\nImageUrl: {ImageUrl}\n";
+                $"\nImageUrl: {ImageUrl}\n\n";
         }
 
         public string TitlePlatform()

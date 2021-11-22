@@ -39,7 +39,6 @@ namespace GameStore_WPF
         private static IMongoClient client;
 
         private static List<Game> games;
-
         public GameService _service =
             new GameService(connectionStringClient, databaseString, 
                         gamesCollectionString, db, client);
@@ -53,7 +52,12 @@ namespace GameStore_WPF
             ConsoleAllocator.ShowConsoleWindow();
 
             games = _service.Get();
-            listView.ItemsSource = games.ToList();
+            games_LV.ItemsSource = games.ToList();
+
+            foreach(var game in games)
+            {
+                Console.WriteLine(game.ToString());
+            }
         }
 
         private void AddButtonEvent_Click(object sender, RoutedEventArgs e)
@@ -64,22 +68,17 @@ namespace GameStore_WPF
 
         private void ListViewItem_Click(object sender, RoutedEventArgs e)
         {
-            //    MessageBoxResult result = MessageBox.Show("DO YOU WANT TO DELETE PICKED GAME?", "DELETE", MessageBoxButton.YesNo);
-            var source = (List<Game>) listView.ItemsSource;
+            var data = games_LV.SelectedItems
+                .Cast<Game>()
+                .ToList();
 
+            var source = (List<Game>)games_LV.ItemsSource;
+            //     var pick = source.ElementAtOrDefault(itemId)._id;
 
-            Console.WriteLine(source.ElementAt(1).Name);
+            string mockId = "1";
 
-        /*    switch (result)
-            {
-                case MessageBoxResult.Yes:
-                    MessageBox.Show(element.ToString());
-                    //      _service.Remove();
-                    break;
-                case MessageBoxResult.No:
-                    break;
-            }
-        */
+            DetailsWindow detailsWindow = new DetailsWindow(mockId);
+            detailsWindow.Show();
         }
     }
 }

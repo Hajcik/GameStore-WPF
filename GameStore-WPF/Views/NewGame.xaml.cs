@@ -44,6 +44,8 @@ namespace GameStore_WPF.Views
         public Game game = new Game();
         public NewGame()
         {
+            InitializeComponent();
+
             CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name);
             ci.DateTimeFormat.ShortDatePattern = "dd-MM-yyyy";
             ci.DateTimeFormat.LongDatePattern = "dd-MM-yyyy";
@@ -51,7 +53,6 @@ namespace GameStore_WPF.Views
             ci.DateTimeFormat.LongTimePattern = "";
             Thread.CurrentThread.CurrentCulture = ci;
 
-            InitializeComponent();
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -166,6 +167,11 @@ namespace GameStore_WPF.Views
                 {
                     _service.Create(game);
                     MessageBox.Show(bsonDoc.ToString());
+
+                    _service.Get();
+
+                    Console.WriteLine("NEW GAME:\n " + game.ToString());
+                    Close();
                 }
                 catch(Exception err)
                 {
