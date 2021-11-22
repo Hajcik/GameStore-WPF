@@ -5,7 +5,7 @@
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:local="clr-namespace:GameStore_WPF"
          mc:Ignorable="d"
-         Title="MainWindow" Height="500" Width="800"
+         Title="MainWindow" Height="500" Width="850"
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
          TextElement.FontWeight="Regular"
@@ -13,21 +13,16 @@
          TextOptions.TextFormattingMode="Ideal"
          TextOptions.TextRenderingMode="Auto"
          Background="{DynamicResource MaterialDesignPaper}"
-         FontFamily="{DynamicResource MaterialDesignFont}">
-    <Grid>
+         FontFamily="{DynamicResource MaterialDesignFont}"
+         ResizeMode="NoResize">
+    <Grid Background="#323232">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Name="menu_Grid">
-
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#D9D9D9" Offset="1"/>
-                    <GradientStop Color="#BFBFBF" Offset="2"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+        <Grid Grid.Row="0" Name="menu_Grid" Background="#3D3D3D">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>
@@ -45,26 +40,36 @@
                     Opacity="1" Cursor="Hand" Visibility="Visible" FontSize="20" 
                     FontFamily="Microsoft Sans Serif" BorderBrush="#FF962D38" 
                     FontStretch="SemiCondensed" FontStyle="Normal" 
-                    FontWeight="Bold" Foreground="Black"
-                    Name="add_Btn"
-                    Click="AddButtonEvent_Click">
+                    FontWeight="Bold" Foreground="AntiqueWhite"
+                    Name="add_Btn">
 
             </Button>
-            <materialDesign:PackIcon Grid.Column="5" Kind="Search"  Height="30" Width="30" 
-                                     Margin="40,0,0,0" VerticalAlignment="Center" 
-                                     Name="search_Ico"/>
 
-            <Border Grid.Column="5" Margin="32,14,64,15" BorderThickness="0,0,0,3" BorderBrush="Red">
-                <TextBlock  Text="Search"  FontFamily="Tahoma" 
-                            FontSize="16" TextTrimming="WordEllipsis" 
-                            FontStyle="Normal" Margin="50,0,0,0"
-                            VerticalAlignment="Center"
-                            Name="search_TB"
-                       />
-            </Border>
+
+            <Button Grid.Column="5" Margin="28,15,335,15" Name="search_Btn" Background="#C71E27" 
+                    Foreground="AntiqueWhite" BorderBrush="#FFC71E27" Cursor="Hand">
+                <materialDesign:PackIcon  Kind="Search" Padding="0,0,0,0" 
+                                          VerticalAlignment="Center" Width="39" 
+                                          HorizontalAlignment="Center" Height="28"/>
+            </Button>
+            <TextBox Grid.Column="5" HorizontalAlignment="Left" 
+                     Margin="99,0,0,0" VerticalAlignment="Center" 
+                     Text="Search" TextWrapping="Wrap" 
+                     Width="240" Height="32"
+                     Padding="15,5,5,5"
+                     FontSize="16" FontStyle="Normal"
+                     Foreground="AntiqueWhite"
+                     BorderThickness="0,0,0,0"/>
+            
+
+            <Border BorderThickness="0,0,0,1.4" BorderBrush="#C71E27" Grid.Column="5" Margin="66,15,60,15" />
+
+
+
+
         </Grid>
 
-        <Grid Grid.Row="1" Name="content_Grid">
+        <!---<Grid Grid.Row="1" Name="content_Grid">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -82,21 +87,25 @@
                 <RowDefinition Height="180"/>
                 <RowDefinition Height="180"/>
                 <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <ListView x:Name="listView" Grid.Column="1" Grid.ColumnSpan="6" Margin="0,32,10,10" Grid.RowSpan="3">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <EventSetter Event="Selected" Handler="ListViewItem_Click"></EventSetter>
-                    </Style>
-                </ListView.ItemContainerStyle>
-            </ListView>
+            </Grid.RowDefinitions>    
+        
+        </Grid>-->
 
-
-        </Grid>
+        <ListView x:Name="games_LV" Grid.Row="1" Margin="10,10,10,10">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="6" HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch">
+                        <Image Source="{Binding ImageData}" HorizontalAlignment="Stretch" 
+                               VerticalAlignment="Top" Stretch="UniformToFill"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
