@@ -5,8 +5,147 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameStore_WPF"
         mc:Ignorable="d"
-        Title="DetailsWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="DetailsWindow" Height="420" Width="700"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize">
+    <Grid Background="#323232">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="320"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Margin="0,5,0,5" Content="Text"
+                       Foreground="AntiqueWhite" FontSize="32"
+                       Padding="0,10,0,10" VerticalAlignment="Center"
+                       x:Name="title_l"/>
+                <Border Grid.Column="0" 
+                    BorderThickness="0,0,0,2.7" BorderBrush="AntiqueWhite"
+                    Padding="0,5,0,5" Margin="0,5,0,15"/>
+                
+                <Label Grid.Column="1" Margin="15,5,0,5" x:Name="platform_l"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Content="Platform" Foreground="Silver" FontSize="24"/>
+
+                <Border Grid.Column="1" 
+                    BorderThickness="0.7,0,0,0" BorderBrush="Silver"
+                    Margin="10,10,10,10"/>
+            </Grid>
+
+            <TextBlock Grid.Row="2" Margin="0" Padding="10,10,10,10"
+                       Text="Description" Foreground="AntiqueWhite" FontSize="14"
+                       x:Name="desc_txb"
+                       />
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" x:Name="modes_l" Margin="5,0,0,0"
+                       Foreground="Silver" FontSize="16" Content="Modes" 
+                       />
+                <Border Grid.Row="0" Grid.Column="0" Margin="5,0,90,0"
+                    BorderThickness="0,0,0,1" BorderBrush="Silver"/>
+                <TextBlock Grid.Row="1" Grid.Column="0"
+                           Margin="5,5,5,5" Padding="5,5,5,5" 
+                           FontSize="10" Foreground="AntiqueWhite"
+                           x:Name="modes_txb" Text="sample,sample"/>
+
+                <Label Grid.Row="0" Grid.Column="1" x:Name="genres_l" Margin="5,0,0,0"
+                       Foreground="Silver" FontSize="16" Content="Genres" 
+                       />
+                <Border Grid.Row="0" Grid.Column="1" Margin="5,0,90,0"
+                    BorderThickness="0,0,0,1" BorderBrush="Silver"/>
+                <TextBlock Grid.Row="1" Grid.Column="1"
+                           Margin="5,5,5,5" Padding="5,5,5,5" 
+                           FontSize="10" Foreground="AntiqueWhite"
+                           x:Name="genres_txb" Text="sample,sample"/>                
+
+            </Grid>
+
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Margin="10,0,60,0" Padding="5,5,0,5"
+                       Content="Copies: 2000" x:Name="copy_l" VerticalAlignment="Center"
+                       Foreground="AntiqueWhite" FontSize="18"/>
+                <Border Grid.Column="1" 
+                    BorderThickness="1.6,0,1.6,0" BorderBrush="Silver"
+                    Margin="0" Padding="10"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Grid.Column="2" Margin="10,0,60,0" Padding="5,5,0,5"
+                       Content="Price: 2000" x:Name="price_l" VerticalAlignment="Center"
+                       Foreground="AntiqueWhite" FontSize="18"/>
+            </Grid>
+            
+        </Grid>
+
+        <Grid Grid.Column="2" Background="AntiqueWhite" Opacity="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="240"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image x:Name="img_main" Margin="20,20,20,20" Width="140" Height="200" Grid.Row="1" Stretch="Uniform"/>
+            
+            <Label Grid.Row="3" x:Name="date_l" Margin="15,5,5,5"  Height="35"
+                   VerticalAlignment="Center" Content="Relase Date:" 
+                   Padding="0,10,0,10" FontSize="14" Foreground="#141414"/>
+            <Label Grid.Row="4" x:Name="dev_l" Margin="15,0,5,0"  Height="40"
+                   VerticalAlignment="Center" Content="Developer:" 
+                   Padding="0,5,0,5" FontSize="14" Foreground="#141414"/>
+            <Label Grid.Row="5" x:Name="pub_l" Margin="15,5,5,5"  Height="35"
+                   VerticalAlignment="Center" Content="Publisher:" 
+                   Padding="0,10,0,10" FontSize="14" Foreground="#141414"/>
+
+            <Button Grid.Row="7" Margin="24,5,24,5"
+                    FontWeight="Bold" Foreground="AntiqueWhite"
+                    Background="#C71E27"  BorderBrush="#FF962D38" 
+                    FontFamily="Microsoft Sans Serif"
+                    FontStretch="SemiCondensed" FontStyle="Normal" >Sell</Button>
+        </Grid>
     </Grid>
 </Window>
