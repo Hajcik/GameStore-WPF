@@ -51,8 +51,12 @@ namespace GameStore_WPF
             // Run console window for testing purposes
             ConsoleAllocator.ShowConsoleWindow();
 
+            games_LV.Visibility = Visibility.Collapsed;
+
             games = _service.Get();
             games_LV.ItemsSource = games.ToList();
+            gamesListView.ItemsSource = games.ToList();
+
 
             foreach(var game in games)
             {

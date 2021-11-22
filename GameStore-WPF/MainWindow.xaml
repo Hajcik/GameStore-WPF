@@ -112,5 +112,17 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
+        <ListView x:Name="gamesListView" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="Selected" Handler="ListViewItem_Click"></EventSetter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
     </Grid>
 </Window>
