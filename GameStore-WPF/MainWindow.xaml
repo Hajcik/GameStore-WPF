@@ -55,7 +55,7 @@
             <TextBox Grid.Column="5" HorizontalAlignment="Left" 
                      Margin="99,0,0,0" VerticalAlignment="Center" 
                      Text="Search" TextWrapping="Wrap" 
-                     Width="280" Height="32"
+                     Width="240" Height="32"
                      Padding="15,5,5,5"
                      FontSize="16" FontStyle="Normal"
                      Foreground="AntiqueWhite"
