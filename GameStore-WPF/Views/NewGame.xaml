@@ -30,7 +30,8 @@
             <ComboBoxItem Content="XBOX ONE"/>
             <ComboBoxItem Content="NINTENDO SWITCH"/>
         </ComboBox>
-        <Image x:Name="Cover_Image" HorizontalAlignment="Left" Height="274" Margin="343,22,0,0" VerticalAlignment="Top" Width="236" Grid.Column="1"/>
+        <Image x:Name="Cover_Image" HorizontalAlignment="Left" Height="274" Margin="343,22,0,0" VerticalAlignment="Top" Width="236" Grid.Column="1"
+                />
         <TextBox x:Name="Name_textBox" HorizontalAlignment="Center" Margin="0,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
         <TextBox x:Name="Price_textBox" HorizontalAlignment="Left" Margin="12,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
         <TextBox x:Name="Genres_textBox" HorizontalAlignment="Left" Margin="12,209,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>

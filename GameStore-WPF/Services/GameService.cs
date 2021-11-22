@@ -1,6 +1,7 @@
 ﻿using GameStore_WPF.Models;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace GameStore_WPF.Services
 {
@@ -21,6 +22,7 @@ namespace GameStore_WPF.Services
             _games = db.GetCollection<Game>(collectionName);
             _db = db;
             _mongoClient = client;
+            
         }
 
         public List<Game> Get() =>

@@ -6,6 +6,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Configuration;
 using System.Globalization;
@@ -37,31 +38,48 @@ namespace GameStore_WPF
         private static IMongoDatabase db;
         private static IMongoClient client;
 
-        public GameService _service =
-            new GameService(connectionStringClient, databaseString, gamesCollectionString, db, client);
-            
-        
-        public IMongoCollection<Game> gamesCollection { get; set; }
+        private static List<Game> games;
 
+        public GameService _service =
+            new GameService(connectionStringClient, databaseString, 
+                        gamesCollectionString, db, client);
+            
         public MainWindow()
         {
+            
             InitializeComponent();
 
             // Run console window for testing purposes
             ConsoleAllocator.ShowConsoleWindow();
-        
-        //    gamesCollection.Find(new BsonDocument()).ForEachAsync(x => Console.WriteLine(x));
+
+            games = _service.Get();
+            listView.ItemsSource = games.ToList();
         }
-
-        // Temporary button logic for testing
-
-        Button add_btn = new Button();
 
         private void AddButtonEvent_Click(object sender, RoutedEventArgs e)
         {
             NewGame newGame = new NewGame();
             newGame.Show();
+        }
 
+        private void ListViewItem_Click(object sender, RoutedEventArgs e)
+        {
+            //    MessageBoxResult result = MessageBox.Show("DO YOU WANT TO DELETE PICKED GAME?", "DELETE", MessageBoxButton.YesNo);
+            var source = (List<Game>) listView.ItemsSource;
+
+
+            Console.WriteLine(source.ElementAt(1).Name);
+
+        /*    switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    MessageBox.Show(element.ToString());
+                    //      _service.Remove();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        */
         }
     }
 }

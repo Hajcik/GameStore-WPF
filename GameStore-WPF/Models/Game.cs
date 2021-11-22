@@ -2,6 +2,7 @@
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace GameStore_WPF.Models
 {
@@ -71,17 +72,23 @@ namespace GameStore_WPF.Models
 
         public override string ToString()
         {
-            return $"Name: {Name}" +
+            return $"ID: {_id}" +
+                $"\nName: {Name}" +
                 $"\nPlatform:{Platform}" +
-                $"\nPrice: {Price}" +
-                $"\nGenres: {Genres}" +
-                $"\nModes: {Modes}" +
+                $"\nPrice: {Price} PLN" +
+                $"\nGenres: {string.Join(",", Genres.ToArray())}" +
+                $"\nModes: {string.Join(",", Modes.ToArray())}" +
                 $"\nReleaseDate: {ReleaseDate}" +
-                $"\nDevelopers: {Developers}" +
-                $"\nPublishers: {Publishers}" +
+                $"\nDevelopers: {string.Join(",", Developers.ToArray())}" +
+                $"\nPublishers: {string.Join(",", Publishers.ToArray())}" +
                 $"\nAvailableCopies: {AvailableCopies}" +
                 $"\nDescription: {Description}" +
-                $"\nImageUrl: {ImageUrl}";
+                $"\nImageUrl: {ImageUrl}\n";
+        }
+
+        public string TitlePlatform()
+        {
+            return $"{Name} + ({Platform})";
         }
     }
 }
